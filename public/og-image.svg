@@ -1,0 +1,26 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8F3E8"/>
+  <rect width="1200" height="630" fill="url(#paint0_radial_10_2)"/>
+  <rect width="1200" height="630" fill="url(#paint1_radial_10_2)"/>
+  <rect x="720" y="98" width="232" height="420" rx="42" fill="#FFFDF7"/>
+  <rect x="758" y="128" width="156" height="68" rx="18" fill="#274934"/>
+  <rect x="776" y="226" width="122" height="172" rx="26" fill="#F4EBD7"/>
+  <rect x="220" y="134" width="378" height="56" rx="28" fill="#FFFFFF" fill-opacity="0.7"/>
+  <text x="248" y="170" fill="#274934" font-size="26" font-family="Arial, sans-serif" font-weight="700" letter-spacing="4">ORGANO SILVIA</text>
+  <text x="216" y="286" fill="#203223" font-size="72" font-family="Georgia, serif" font-weight="700">Daily Natural</text>
+  <text x="216" y="360" fill="#203223" font-size="72" font-family="Georgia, serif" font-weight="700">Skincare</text>
+  <text x="216" y="420" fill="#5D6D63" font-size="30" font-family="Arial, sans-serif">Lightweight sunscreen, gentle face wash, and simple</text>
+  <text x="216" y="458" fill="#5D6D63" font-size="30" font-family="Arial, sans-serif">daily care made for Indian skin.</text>
+  <rect x="220" y="506" width="220" height="54" rx="27" fill="#274934"/>
+  <text x="270" y="541" fill="white" font-size="24" font-family="Arial, sans-serif" font-weight="700">Buy on Amazon</text>
+  <defs>
+    <radialGradient id="paint0_radial_10_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(228 62) rotate(36.9472) scale(531.774 614.756)">
+      <stop stop-color="#D7E7CE"/>
+      <stop offset="1" stop-color="#F8F3E8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial_10_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(976 106) rotate(126.027) scale(297.766 323.56)">
+      <stop stop-color="#EFD7A2"/>
+      <stop offset="1" stop-color="#F8F3E8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

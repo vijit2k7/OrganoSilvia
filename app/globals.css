@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f0e7;
+  --surface: rgba(255, 252, 246, 0.82);
+  --surface-strong: #fffdf8;
+  --foreground: #1d2b21;
+  --muted: #5f6f64;
+  --line: rgba(54, 76, 61, 0.12);
+  --primary: #5d7c61;
+  --primary-deep: #274934;
+  --accent: #cfad62;
+  --accent-soft: #e9d7ab;
+  --shadow: 0 24px 80px rgba(44, 61, 45, 0.12);
+  --shadow-soft: 0 18px 48px rgba(44, 61, 45, 0.08);
+  --font-display:
+    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Times New Roman",
+    serif;
+  --font-body:
+    "Avenir Next", "Segoe UI", "Helvetica Neue", "Arial Nova", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at top left, rgba(211, 228, 202, 0.85), transparent 36%),
+    radial-gradient(circle at top right, rgba(247, 224, 176, 0.35), transparent 24%),
+    linear-gradient(180deg, #fffdf8 0%, #f6f1e8 48%, #fbf8f2 100%);
+  font-family: var(--font-body), sans-serif;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: rgba(93, 124, 97, 0.22);
+}
+
+.container-shell {
+  margin: 0 auto;
+  width: min(1180px, calc(100% - 2rem));
+}
+
+.section-space {
+  padding: 6.5rem 0;
+}
+
+.section-soft {
+  position: relative;
+}
+
+.section-soft::before {
+  content: "";
+  position: absolute;
+  inset: 2rem 0 auto;
+  margin: 0 auto;
+  width: min(1120px, calc(100% - 2rem));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(93, 124, 97, 0.16), transparent);
+}
+
+.glass-panel {
+  backdrop-filter: blur(18px);
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.92), rgba(255, 250, 242, 0.72));
+  border: 1px solid rgba(93, 124, 97, 0.14);
+  box-shadow: var(--shadow);
+}
+
+.premium-card {
+  border: 1px solid rgba(93, 124, 97, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(252, 248, 240, 0.76));
+  box-shadow: var(--shadow-soft);
+}
+
+.cta-primary {
+  background: linear-gradient(135deg, #264434 0%, #365a42 100%);
+  color: white;
+  box-shadow: 0 18px 42px rgba(37, 71, 53, 0.24);
+}
+
+.cta-secondary {
+  border: 1px solid rgba(202, 170, 98, 0.72);
+  background: linear-gradient(180deg, rgba(255, 252, 245, 0.96), rgba(255, 248, 235, 0.88));
+  color: #274934;
+  box-shadow: 0 16px 38px rgba(93, 124, 97, 0.12);
+}
+
+.cta-tertiary {
+  border: 1px solid rgba(93, 124, 97, 0.18);
+  background: rgba(255, 255, 255, 0.58);
+  color: #355240;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(93, 124, 97, 0.16);
+  background: rgba(255, 252, 246, 0.72);
+  padding: 0.45rem 0.85rem;
+  color: var(--primary-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading-display {
+  font-family: var(--font-display), serif;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.soft-ring {
+  position: relative;
+}
+
+.soft-ring::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(207, 173, 98, 0.32), rgba(93, 124, 97, 0.12));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.texture-grid {
+  background-image:
+    linear-gradient(rgba(93, 124, 97, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(93, 124, 97, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.fade-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(93, 124, 97, 0.16), transparent);
+}
+
+@media (max-width: 768px) {
+  .section-space {
+    padding: 4.5rem 0;
+  }
+
+  .container-shell {
+    width: min(100%, calc(100% - 1.25rem));
+  }
+
+  .section-kicker {
+    font-size: 0.72rem;
+  }
+}
