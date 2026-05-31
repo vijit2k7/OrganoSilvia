@@ -85,7 +85,7 @@ export function ProductShowcase() {
                     {product.skinType}
                   </div>
 
-                  <div
+                  {/* <div
                     className={`mt-4 inline-flex items-center gap-2 rounded-full border bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] ${
                       product.name.includes("Shata Dhauta")
                         ? "border-[#ddc285] text-[#8a6731]"
@@ -93,7 +93,7 @@ export function ProductShowcase() {
                     }`}
                   >
                     {product.marketplace}
-                  </div>
+                  </div> */}
 
                   <div className="mt-6 pt-2">
                     <MarketplaceButtons

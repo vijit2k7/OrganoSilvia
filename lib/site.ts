@@ -39,6 +39,10 @@ export const products = [
   {
     name: "OrganoSilvia SPF 50++ Sunscreen",
     image: "/products/sunscreen.svg",
+    heroImages: {
+      default: "/products/sunscreen/sunscreen1.JPG",
+      hover: "/products/sunscreen/sunscreen4.JPG",
+    },
     images: [
       "/products/sunscreen/sunscreen1.JPG",
       "/products/sunscreen/sunscreen2.PNG",
@@ -58,6 +62,10 @@ export const products = [
   {
     name: "OrganoSilvia Organic Face Wash",
     image: "/products/face-wash.svg",
+    heroImages: {
+      default: "/products/facewash/facewash1.PNG",
+      hover: "/products/facewash/facewash4.jpg",
+    },
     images: [
       "/products/facewash/facewash1.PNG",
       "/products/facewash/facewash2.PNG",
@@ -78,6 +86,10 @@ export const products = [
   {
     name: "Shata Dhauta Ghrita Face Cream",
     image: "/products/shata-dhauta-ghrita/facecream1.PNG",
+    heroImages: {
+      default: "/products/shata-dhauta-ghrita/facecream1.PNG",
+      hover: "/products/shata-dhauta-ghrita/facecream4.PNG",
+    },
     images: [
       "/products/shata-dhauta-ghrita/facecream1.PNG",
       "/products/shata-dhauta-ghrita/facecream2.PNG",
@@ -97,8 +109,12 @@ export const products = [
   },
   {
     name: "OrganoSilvia Face Toner",
-    image: "/products/face-toner.svg",
-    images: ["/products/face-toner.svg"],
+    image: "/products/toner/toner1.JPG",
+    images: [
+      "/products/toner/toner1.JPG",
+      "/products/toner/toner2.JPG",
+      "/products/toner/toner3.JPG",
+    ],
     description:
       "A refreshing organic face toner designed to complement cleansing and prep skin for the rest of the ritual.",
     benefits: ["Fresh lightweight prep", "Supports layered skincare", "Easy post-cleanse step"],
@@ -312,26 +328,30 @@ export const whyChoose = [
   },
 ];
 
-export const blogPosts = [
+export const educationTopics = [
   {
-    title: "SPF 30 vs SPF 50: Which sunscreen should you choose?",
+    title: "Why chemical-free daily skincare matters",
     excerpt:
-      "A practical guide to choosing the right lightweight sunscreen based on routine, comfort, and daily exposure.",
+      "A simple brand education topic around choosing organic, natural ingredient-led skincare for everyday routines.",
+    label: "Brand education",
   },
   {
-    title: "How to build a simple morning skincare routine",
+    title: "How to build a simple organic morning routine",
     excerpt:
-      "Learn how a cleanser and sunscreen can form a reliable skincare routine without feeling complicated.",
+      "Show how face wash, sunscreen, toner, and ritual cream can fit together without turning skincare into a chore.",
+    label: "Routine guide",
   },
   {
-    title: "Best skincare routine for Indian weather",
+    title: "Ancient Ayurveda, modern glow",
     excerpt:
-      "Why climate, commute, humidity, and daily habits matter when picking natural skincare essentials.",
+      "Use Shata Dhauta Ghrita to explain how traditional rituals can live inside a premium modern skincare brand.",
+    label: "Ayurveda story",
   },
   {
-    title: "What is Shata Dhauta Ghrita in skincare?",
+    title: "Organic skincare for Indian weather",
     excerpt:
-      "Explore the Ayurveda-rooted story of A2 cow ghee washed 100 times in a copper vessel and how it fits a modern glow routine.",
+      "Educate customers on lightweight textures, cleansing comfort, and daily consistency in warm, active climates.",
+    label: "Skin knowledge",
   },
 ];
 

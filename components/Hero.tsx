@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDownRight, CheckCircle2, ShieldCheck, Star } from "lucide-react";
-import { ProductImageDeck } from "@/components/ProductImageDeck";
 import { MarketplaceButtons } from "@/components/MarketplaceButtons";
 import { heroStats, products, rangeHighlights, trustBadges } from "@/lib/site";
+import { useEffect, useState } from "react";
 
 const floatingItems = [
   { label: "Aloe vera", className: "left-[6%] top-[14%]", color: "bg-[#f1f8e8]" },
@@ -16,6 +17,39 @@ const floatingItems = [
 export function Hero() {
   const reduceMotion = useReducedMotion();
   const heroProducts = products.slice(0, 3);
+  const [activeProductIndex, setActiveProductIndex] = useState(0);
+  const [hoveredImage, setHoveredImage] = useState(false);
+
+  useEffect(() => {
+    if (reduceMotion || heroProducts.length <= 1) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      setActiveProductIndex((current) => (current + 1) % heroProducts.length);
+    }, 3200);
+
+    return () => window.clearInterval(timer);
+  }, [heroProducts.length, reduceMotion]);
+
+  const activeProduct = heroProducts[activeProductIndex];
+  const activeHeroImage =
+    hoveredImage && activeProduct.heroImages?.hover
+      ? activeProduct.heroImages.hover
+      : activeProduct.heroImages?.default || activeProduct.images[0];
+  const heroStatsContent = (
+    <>
+      {heroStats.map((stat) => (
+        <div
+          key={stat.label}
+          className="rounded-[1.5rem] border border-[#e5dcc8] bg-white/70 px-4 py-4 shadow-[0_14px_34px_rgba(61,86,66,0.07)]"
+        >
+          <div className="text-2xl font-extrabold text-[#203223]">{stat.value}</div>
+          <div className="mt-1 text-sm leading-6 text-[#607064]">{stat.label}</div>
+        </div>
+      ))}
+    </>
+  );
 
   return (
     <section className="relative overflow-hidden pb-8 pt-8 sm:pb-12 sm:pt-12">
@@ -58,16 +92,16 @@ export function Hero() {
             face oil, moisturizer, and day and night creams expanding the ritual.
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             className="mt-7"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.24 }}
           >
             <MarketplaceButtons showExplore emphasize="amazon" />
-          </motion.div>
+          </motion.div> */}
 
-          <motion.div
+          {/* <motion.div
             className="mt-4 flex flex-wrap items-center gap-3 text-sm text-[#4f6054]"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,7 +118,7 @@ export function Hero() {
               Explore the full range first
               <ArrowDownRight className="h-4 w-4" />
             </a>
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             className="mt-7 flex flex-wrap gap-3"
@@ -106,42 +140,14 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="mt-7 grid gap-3 sm:grid-cols-3"
+            className="mt-7 hidden gap-3 sm:grid-cols-3 md:grid"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.36 }}
           >
-            {heroStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-[1.5rem] border border-[#e5dcc8] bg-white/70 px-4 py-4 shadow-[0_14px_34px_rgba(61,86,66,0.07)]"
-              >
-                <div className="text-2xl font-extrabold text-[#203223]">{stat.value}</div>
-                <div className="mt-1 text-sm leading-6 text-[#607064]">{stat.label}</div>
-              </div>
-            ))}
+            {heroStatsContent}
           </motion.div>
 
-          <motion.div
-            className="mt-7 rounded-[1.6rem] border border-[#e5dcc8] bg-white/66 p-4 shadow-[0_14px_34px_rgba(61,86,66,0.07)]"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6f7c6f]">
-              Range vision
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {rangeHighlights.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[#dcd1bd] bg-[#fffaf2] px-3 py-2 text-sm text-[#466053]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </motion.div>
         </div>
 
         <motion.div
@@ -167,82 +173,127 @@ export function Hero() {
 
           <div className="glass-panel texture-grid soft-ring relative overflow-hidden rounded-[2.2rem] p-4 sm:p-6">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.56),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(207,173,98,0.18),transparent_30%)]" />
-            <div className="relative grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-              <div className="grid gap-4 sm:grid-cols-2">
-                {heroProducts.map((product, index) => (
+            <div className="relative space-y-4">
+              <div className="premium-card rounded-[1.7rem] bg-[#f3ead4] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]">
+                <div className="mb-4 flex items-center justify-between text-xs uppercase tracking-[0.22em] text-[#6f7c6f]">
+                  <span>{activeProduct.bestFor}</span>
+                </div>
+                <div className="rounded-[1.4rem] bg-white/70 p-4">
                   <div
-                    key={product.name}
-                    className={`premium-card rounded-[1.6rem] p-4 sm:p-5 ${
-                      index === 2 ? "sm:col-span-2" : ""
-                    }`}
+                    className="relative flex h-[360px] items-center justify-center overflow-hidden rounded-[1.2rem] sm:h-[400px]"
+                    onMouseEnter={() => setHoveredImage(true)}
+                    onMouseLeave={() => setHoveredImage(false)}
                   >
-                    <div className="mb-3 flex items-center justify-between gap-3 text-[11px] uppercase tracking-[0.2em] text-[#6f7c6f]">
-                      <span>{product.marketplace}</span>
-                      <span>{product.bestFor}</span>
-                    </div>
-                    <div className="rounded-[1.3rem] bg-white/72 p-3">
-                      <ProductImageDeck
-                        alt={product.name}
-                        images={product.images}
-                        aspect="card"
-                        hoverPreviewIndex={3}
-                        priority={index === 0}
-                        showMeta={false}
+                    <motion.div
+                      key={`${activeProduct.name}-${activeHeroImage}`}
+                      initial={reduceMotion ? false : { opacity: 0, scale: 0.985, y: 8 }}
+                      animate={reduceMotion ? {} : { opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                      className="flex h-full w-full items-center justify-center"
+                    >
+                      <Image
+                        src={activeHeroImage}
+                        alt={activeProduct.name}
+                        width={520}
+                        height={620}
+                        className="mx-auto max-h-[320px] w-auto max-w-full rounded-[1.2rem] object-contain sm:max-h-[360px]"
+                        priority
                       />
-                    </div>
-                    <div className="mt-4">
-                      <h2 className="text-lg font-semibold text-[#203223] sm:text-xl">
-                        {product.name}
-                      </h2>
-                      <p className="mt-2 text-sm leading-7 text-[#546559]">
-                        Hover the image to preview the 4th product frame.
-                      </p>
+                    </motion.div>
+
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-[#fff8ee] via-[#fff8ee]/88 to-transparent px-3 pb-3 pt-10">
+                      <div className="pointer-events-auto flex gap-2">
+                        {heroProducts.map((product, index) => (
+                          <button
+                            key={product.name}
+                            type="button"
+                            aria-label={`Show ${product.name}`}
+                            className={`h-2.5 rounded-full transition-all duration-300 ${
+                              index === activeProductIndex
+                                ? "w-8 bg-[#274934]"
+                                : "w-2.5 bg-[#d2c5ab]"
+                            }`}
+                            onClick={() => setActiveProductIndex(index)}
+                          />
+                        ))}
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7a867c]">
+                          {String(activeProductIndex + 1).padStart(2, "0")} / 03
+                        </div>
+                        {/* <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#9aa59c]">
+                          Hover for 4th image
+                        </div> */}
+                      </div>
                     </div>
                   </div>
-                ))}
+                </div>
+                <div className="mt-4 flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-xl font-semibold text-[#203223] sm:text-2xl">
+                      {activeProduct.name}
+                    </h2>
+                    <p className="mt-2 text-sm leading-7 text-[#4f6154]">
+                      {activeProduct.description}
+                    </p>
+                    <div className="mt-4">
+                      <MarketplaceButtons compact />
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="flex flex-col justify-between gap-4">
-                <div className="premium-card rounded-[1.6rem] bg-[#fdfaf3] p-5">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#778578]">
-                    Hero routine
-                  </p>
-                  <h2 className="mt-3 text-2xl font-semibold text-[#203223]">
-                    Cleanse. Protect. Nourish. Glow.
-                  </h2>
-                  <ul className="mt-4 space-y-3 text-sm text-[#5b6b60]">
-                    {[
-                      "Organic face wash for a fresh start",
-                      "SPF 50++ sunscreen for everyday wear",
-                      "Shata Dhauta Ghrita cream for Ayurveda-led glow care",
-                    ].map((item) => (
-                      <li key={item} className="flex gap-2">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#5d7c61]" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="rounded-[1.6rem] bg-[#264434] p-5 text-white shadow-[0_18px_40px_rgba(37,71,53,0.26)]">
-                  <p className="text-sm uppercase tracking-[0.18em] text-[#d4e3d4]">
-                    Marketplace ready
-                  </p>
-                  <p className="mt-3 text-lg leading-7 text-[#f8f6f0]">
-                    Discover organic skincare, then buy with confidence on Amazon and
-                    Flipkart.
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2 text-xs uppercase tracking-[0.16em] text-[#d7e4d8]">
-                    <span className="rounded-full border border-white/15 px-3 py-2">
-                      Hover to preview
-                    </span>
-                    <span className="rounded-full border border-white/15 px-3 py-2">
-                      Buy where familiar
-                    </span>
-                  </div>
-                </div>
+              <div className="premium-card rounded-[1.6rem] bg-[#fdfaf3] p-5 lg:mt-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#778578]">
+                  Hero routine
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold text-[#203223]">
+                  Cleanse. Protect. Nourish. Glow.
+                </h2>
+                <ul className="mt-4 space-y-3 text-sm text-[#5b6b60]">
+                  {[
+                    "Organic face wash for a fresh start",
+                    "SPF 50++ sunscreen for everyday wear",
+                    "Shata Dhauta Ghrita cream for Ayurveda-led glow care",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#5d7c61]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="grid gap-3 sm:grid-cols-3 md:hidden"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.36 }}
+        >
+          {heroStatsContent}
+        </motion.div>
+
+        <motion.div
+          className="rounded-[1.6rem] border border-[#e5dcc8] bg-white/66 p-4 shadow-[0_14px_34px_rgba(61,86,66,0.07)]"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6f7c6f]">
+            Range vision
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {rangeHighlights.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-[#dcd1bd] bg-[#fffaf2] px-3 py-2 text-sm text-[#466053]"
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>

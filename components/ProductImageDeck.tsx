@@ -8,30 +8,21 @@ type ProductImageDeckProps = {
   alt: string;
   images: string[];
   aspect?: "card" | "hero";
-  hoverPreviewIndex?: number;
   priority?: boolean;
-  showMeta?: boolean;
 };
 
 export function ProductImageDeck({
   alt,
   images,
   aspect = "card",
-  hoverPreviewIndex,
   priority = false,
-  showMeta = true,
 }: ProductImageDeckProps) {
   const reduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    if (
-      images.length <= 1 ||
-      reduceMotion ||
-      !hovered ||
-      typeof hoverPreviewIndex === "number"
-    ) {
+    if (images.length <= 1 || reduceMotion || !hovered) {
       return;
     }
 
@@ -40,12 +31,9 @@ export function ProductImageDeck({
     }, aspect === "hero" ? 2800 : 2400);
 
     return () => window.clearInterval(timer);
-  }, [aspect, hovered, hoverPreviewIndex, images.length, reduceMotion]);
-  const displayIndex =
-    typeof hoverPreviewIndex === "number" && hovered && images[hoverPreviewIndex]
-      ? hoverPreviewIndex
-      : index;
-  const activeImage = images[displayIndex];
+  }, [aspect, hovered, images.length, reduceMotion]);
+
+  const activeImage = images[index];
   const frameClass =
     aspect === "hero"
       ? "relative flex h-[360px] items-center justify-center sm:h-[400px]"
@@ -82,7 +70,7 @@ export function ProductImageDeck({
           </motion.div>
         </AnimatePresence>
 
-        {images.length > 1 && showMeta ? (
+        {images.length > 1 ? (
           <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-[#fff8ee] via-[#fff8ee]/88 to-transparent px-3 pb-3 pt-10">
             <div className="pointer-events-auto flex gap-2">
               {images.map((image, imageIndex) => (
@@ -91,7 +79,7 @@ export function ProductImageDeck({
                   type="button"
                   aria-label={`Show image ${imageIndex + 1} for ${alt}`}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    imageIndex === displayIndex ? "w-8 bg-[#274934]" : "w-2.5 bg-[#d2c5ab]"
+                    imageIndex === index ? "w-8 bg-[#274934]" : "w-2.5 bg-[#d2c5ab]"
                   }`}
                   onClick={() => setIndex(imageIndex)}
                 />
@@ -99,8 +87,7 @@ export function ProductImageDeck({
             </div>
             <div className="pointer-events-none text-right">
               <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7a867c]">
-                {String(displayIndex + 1).padStart(2, "0")} /{" "}
-                {String(images.length).padStart(2, "0")}
+                {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
               </div>
               <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#9aa59c]">
                 Hover to preview

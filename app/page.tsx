@@ -5,8 +5,6 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Ingredients } from "@/components/Ingredients";
-import { MarketplaceStrip } from "@/components/MarketplaceStrip";
-import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { ProblemSolution } from "@/components/ProblemSolution";
 import { ProductShowcase } from "@/components/ProductShowcase";
 import { Routine } from "@/components/Routine";
@@ -23,7 +21,6 @@ export default function HomePage() {
       <main id="main-content">
         <Hero />
         <SignatureAyurveda />
-        <MarketplaceStrip />
         <ProductShowcase />
         <ProblemSolution />
         <Ingredients />
@@ -35,7 +32,6 @@ export default function HomePage() {
         <FinalCta />
       </main>
       <Footer />
-      <MobileStickyCTA />
     </>
   );
 }
