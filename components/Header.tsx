@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { Menu, Sparkles, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { MarketplaceButtons } from "@/components/MarketplaceButtons";
-import { navLinks } from "@/lib/site";
+import { brandAssets, navLinks } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -13,8 +14,15 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-white/30 bg-[#fffaf3]/88 backdrop-blur-xl">
       <div className="container-shell flex min-h-18 items-center justify-between gap-4 py-3">
         <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#274934] text-white shadow-[0_10px_24px_rgba(39,73,52,0.22)]">
-            <Sparkles className="h-5 w-5" />
+          <span className="overflow-hidden rounded-full shadow-[0_10px_24px_rgba(39,73,52,0.18)] ring-1 ring-[#5d7c6120]">
+            <Image
+              src={brandAssets.logo}
+              alt="OrganoSilvia logo"
+              width={44}
+              height={44}
+              className="h-11 w-11 object-cover"
+              priority
+            />
           </span>
           <span>
             <span className="heading-display block text-2xl font-semibold text-[#233629]">

@@ -1,0 +1,60 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 320) rotate(90) scale(320)">
+      <stop offset="0" stop-color="#1F2E17"/>
+      <stop offset="1" stop-color="#182412"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="74" y1="64" x2="578" y2="578" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AB334"/>
+      <stop offset="1" stop-color="#B1D64F"/>
+    </linearGradient>
+    <filter id="shadow" x="126" y="145" width="388" height="278" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="16"/>
+      <feGaussianBlur stdDeviation="18"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.063 0 0 0 0 0.106 0 0 0 0 0.05 0 0 0 0.2 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+    <path id="topArc" d="M120 319.5C120 208.767 209.767 119 320.5 119C431.233 119 521 208.767 521 319.5"/>
+    <path id="bottomArc" d="M515 319.5C515 427.747 427.247 515.5 319 515.5C210.753 515.5 123 427.747 123 319.5"/>
+  </defs>
+
+  <circle cx="320" cy="320" r="280" fill="url(#bg)"/>
+  <circle cx="320" cy="320" r="294" stroke="url(#ring)" stroke-width="22"/>
+  <circle cx="320" cy="320" r="266" stroke="#36541F" stroke-width="2"/>
+
+  <text fill="white" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" letter-spacing="3">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">ORGANOSILVIA</textPath>
+  </text>
+
+  <text fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1.5">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">HEALTH AND WELLNESS</textPath>
+  </text>
+
+  <g filter="url(#shadow)">
+    <path d="M261 388C248 332 245 290 251 262C257 232 282 219 302 233C315 242 327 270 340 321C347 346 350 368 349 388H261Z" fill="#FCFCFB"/>
+    <path d="M300 233C305 199 329 175 357 180C382 184 393 213 381 240C372 260 348 283 309 309L300 233Z" fill="#FAFBF8"/>
+    <circle cx="334" cy="299" r="18" fill="#F2F5F1"/>
+  </g>
+
+  <g>
+    <path d="M200 333C226 300 266 295 315 309C280 336 250 353 223 358C212 360 203 351 200 333Z" fill="#8FBE32"/>
+    <path d="M210 338C241 314 276 313 316 325C283 342 253 354 226 360C218 361 212 352 210 338Z" fill="#76AB2E"/>
+    <ellipse cx="232" cy="308" rx="27" ry="14" transform="rotate(-36 232 308)" fill="#A8D84B"/>
+    <path d="M233 290C232 274 240 259 257 247C261 266 255 281 241 293L233 290Z" fill="#6EA92C"/>
+  </g>
+
+  <g>
+    <ellipse cx="366" cy="309" rx="70" ry="18" transform="rotate(-33 366 309)" fill="#517A2B"/>
+    <ellipse cx="370" cy="307" rx="56" ry="12" transform="rotate(-33 370 307)" fill="#6EA13C"/>
+    <ellipse cx="386" cy="289" rx="18" ry="42" transform="rotate(-33 386 289)" fill="#86BE48"/>
+  </g>
+
+  <g>
+    <ellipse cx="294" cy="358" rx="44" ry="24" transform="rotate(-8 294 358)" fill="#98CD43"/>
+    <path d="M266 345C264 326 275 311 300 300C307 321 300 338 279 351L266 345Z" fill="#75B438"/>
+    <path d="M310 343C327 334 342 334 354 344C341 359 325 364 306 360L310 343Z" fill="#6BAA32"/>
+  </g>
+</svg>

@@ -1,14 +1,26 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Mail, MapPin, ShoppingBag } from "lucide-react";
 import { MarketplaceButtons } from "@/components/MarketplaceButtons";
-import { marketplaceLinks, navLinks } from "@/lib/site";
+import { brandAssets, marketplaceLinks, navLinks } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="border-t border-[#5d7c6117] bg-[#faf6ee] pb-28 pt-12 md:pb-12">
       <div className="container-shell grid gap-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_0.8fr]">
         <div>
-          <h2 className="heading-display text-3xl text-[#203223]">OrganoSilvia</h2>
+          <div className="flex items-center gap-3">
+            <span className="overflow-hidden rounded-full shadow-[0_10px_24px_rgba(39,73,52,0.18)] ring-1 ring-[#5d7c6120]">
+              <Image
+                src={brandAssets.logo}
+                alt="OrganoSilvia logo"
+                width={52}
+                height={52}
+                className="h-[52px] w-[52px] object-cover"
+              />
+            </span>
+            <h2 className="heading-display text-3xl text-[#203223]">OrganoSilvia</h2>
+          </div>
           <p className="mt-4 max-w-md text-sm leading-7 text-[#5e6d62]">
             Premium natural skincare for Indian skin, built around lightweight sunscreen,
             gentle daily face wash, and simple routines that fit everyday life.

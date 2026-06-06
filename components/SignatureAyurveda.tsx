@@ -73,7 +73,7 @@ export function SignatureAyurveda() {
                 </blockquote>
 
                 <div className="mt-7">
-                  <MarketplaceButtons emphasize="amazon" />
+                  <MarketplaceButtons emphasize="amazon" links={ayurvedaProduct?.links} />
                 </div>
               </div>
             </div>

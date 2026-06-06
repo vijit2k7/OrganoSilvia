@@ -19,6 +19,10 @@ export const marketplaceLinks = {
   flipkart: "https://www.flipkart.com/",
 };
 
+export const brandAssets = {
+  logo: "/brand/organosilvia-logo.svg",
+};
+
 export const navLinks = [
   { label: "Products", href: "#products" },
   { label: "Ingredients", href: "#ingredients" },
@@ -38,7 +42,7 @@ export const trustBadges: Array<{ label: string; icon: LucideIcon }> = [
 export const products = [
   {
     name: "OrganoSilvia SPF 50++ Sunscreen",
-    image: "/products/sunscreen.svg",
+    image: "/products/sunscreen/sunscreen1.JPG",
     heroImages: {
       default: "/products/sunscreen/sunscreen1.JPG",
       hover: "/products/sunscreen/sunscreen4.JPG",
@@ -49,6 +53,11 @@ export const products = [
       "/products/sunscreen/sunscreen3.JPG",
       "/products/sunscreen/sunscreen4.JPG",
     ],
+    links: {
+      amazon: "https://amzn.in/d/05bGL2BJ",
+      flipkart:
+        "https://dl.flipkart.com/dl/organosilvia-herbal-brightening-rose-aloe-vera-pigmentation-acne-100ml-face-wash/p/itm991928bc2bedc?pid=FCWHNS2EDJZA9UUX&lid=LSTFCWHNS2EDJZA9UUXJAOJVW&marketplace=FLIPKART&hl_lid=&q=Organosilvia&store=search.flipkart.com&ctx=eyJkZWxpdmVyZWRCeSI6IjE3ODEyMzMxNjE2MDgiLCJkaXNwbGF5UHJpY2UiOiIzMzgifQ%3D%3D&fm=eyJ3dHAiOiJwcm9kdWN0Q2FyZExpc3QiLCJwcnB0Ijoic3AiLCJtaWQiOiJQUk9EVUNUIn0&_refId=&_appId=MR",
+    },
     description:
       "An organic SPF 50++ sunscreen designed for Indian skin, with a lightweight finish that fits daily wear.",
     benefits: ["Lightweight daily comfort", "Non-sticky finish", "Made for regular daytime use"],
@@ -61,7 +70,7 @@ export const products = [
   },
   {
     name: "OrganoSilvia Organic Face Wash",
-    image: "/products/face-wash.svg",
+    image: "/products/facewash/facewash1.PNG",
     heroImages: {
       default: "/products/facewash/facewash1.PNG",
       hover: "/products/facewash/facewash4.jpg",
@@ -73,6 +82,11 @@ export const products = [
       "/products/facewash/facewash4.jpg",
       "/products/facewash/facewash5.PNG",
     ],
+    links: {
+      amazon: "https://amzn.in/d/02guGwKK",
+      flipkart:
+        "https://dl.flipkart.com/dl/organosilvia-herbal-brightening-rose-aloe-vera-pigmentation-acne-100ml-face-wash/p/itm991928bc2bedc?pid=FCWHNS2EDJZA9UUX&lid=LSTFCWHNS2EDJZA9UUXJAOJVW&marketplace=FLIPKART&hl_lid=&q=Organosilvia&store=search.flipkart.com&ctx=eyJkZWxpdmVyZWRCeSI6IjE3ODEyMzMxNjE2MDgiLCJkaXNwbGF5UHJpY2UiOiIzMzgifQ%3D%3D&fm=eyJ3dHAiOiJwcm9kdWN0Q2FyZExpc3QiLCJwcnB0Ijoic3AiLCJtaWQiOiJQUk9EVUNUIn0&_refId=&_appId=MR",
+    },
     description:
       "A completely organic face wash crafted for a fresh cleanse without the tight-after feel.",
     benefits: ["Gentle everyday cleanse", "Fresh post-wash feel", "Easy morning and evening use"],
@@ -97,6 +111,10 @@ export const products = [
       "/products/shata-dhauta-ghrita/facecream4.PNG",
       "/products/shata-dhauta-ghrita/facecream5.jpg",
     ],
+    links: {
+      amazon: marketplaceLinks.amazon,
+      flipkart: marketplaceLinks.flipkart,
+    },
     description:
       "An ancient Ayurveda inspired face cream made from A2 cow ghee washed 100 times in a copper vessel.",
     benefits: ["Ayurveda-led ritual care", "Rich nourishing comfort", "Ancient process, modern glow story"],
@@ -110,11 +128,18 @@ export const products = [
   {
     name: "OrganoSilvia Face Toner",
     image: "/products/toner/toner1.JPG",
+    heroImages: {
+      default: "/products/toner/toner1.JPG",
+      hover: "/products/toner/toner3.JPG",
+    },
     images: [
       "/products/toner/toner1.JPG",
       "/products/toner/toner2.JPG",
       "/products/toner/toner3.JPG",
     ],
+    links: {
+      amazon: "https://amzn.in/d/0eKFvqaG",
+    },
     description:
       "A refreshing organic face toner designed to complement cleansing and prep skin for the rest of the ritual.",
     benefits: ["Fresh lightweight prep", "Supports layered skincare", "Easy post-cleanse step"],
@@ -130,7 +155,7 @@ export const products = [
 export const heroStats = [
   { value: "6+", label: "organic skincare categories in the brand vision" },
   { value: "100x", label: "washed A2 cow ghee ritual in Shata Dhauta Ghrita" },
-  { value: "3", label: "hero products leading the brand story" },
+  { value: "4", label: "hero products leading the brand story" },
 ];
 
 export const rangeHighlights = [

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDownRight, CheckCircle2, ShieldCheck, Star } from "lucide-react";
+import { CheckCircle2, Star } from "lucide-react";
 import { MarketplaceButtons } from "@/components/MarketplaceButtons";
 import { heroStats, products, rangeHighlights, trustBadges } from "@/lib/site";
 import { useEffect, useState } from "react";
@@ -16,7 +16,7 @@ const floatingItems = [
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
-  const heroProducts = products.slice(0, 3);
+  const heroProducts = products.slice(0, 4);
   const [activeProductIndex, setActiveProductIndex] = useState(0);
   const [hoveredImage, setHoveredImage] = useState(false);
 
@@ -219,7 +219,8 @@ export function Hero() {
                       </div>
                       <div className="text-right">
                         <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7a867c]">
-                          {String(activeProductIndex + 1).padStart(2, "0")} / 03
+                          {String(activeProductIndex + 1).padStart(2, "0")} /{" "}
+                          {String(heroProducts.length).padStart(2, "0")}
                         </div>
                         {/* <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#9aa59c]">
                           Hover for 4th image
@@ -237,7 +238,7 @@ export function Hero() {
                       {activeProduct.description}
                     </p>
                     <div className="mt-4">
-                      <MarketplaceButtons compact />
+                      <MarketplaceButtons compact links={activeProduct.links} />
                     </div>
                   </div>
                 </div>
@@ -255,6 +256,7 @@ export function Hero() {
                     "Organic face wash for a fresh start",
                     "SPF 50++ sunscreen for everyday wear",
                     "Shata Dhauta Ghrita cream for Ayurveda-led glow care",
+                    "Face toner to extend the ritual with a fresh prep step",
                   ].map((item) => (
                     <li key={item} className="flex gap-2">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#5d7c61]" />

@@ -98,6 +98,7 @@ export function ProductShowcase() {
                   <div className="mt-6 pt-2">
                     <MarketplaceButtons
                       compact
+                      links={product.links}
                       emphasize={index === 0 ? "amazon" : index === 1 ? "flipkart" : undefined}
                     />
                   </div>
